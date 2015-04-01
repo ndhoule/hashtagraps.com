@@ -57,3 +57,8 @@ build:
 	@echo "Building docker container $(USERNAME)/$(NAME):$(VERSION)..."
 	@docker build -t $(USERNAME)/$(NAME):$(VERSION) .
 .PHONY: build
+.DEFAULT_GOAL=build
+
+# Run Docker container.
+run: build
+	@docker run --rm -t -p 8080:8080 $(USERNAME)/$(NAME):$(VERSION)

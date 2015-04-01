@@ -6,7 +6,9 @@ Hashtag raps, when you need them.
 
 - Docker (boot2docker on OS X)
 
-Run `make build` to build the Docker image.
+Run `make` to build the Docker image, `make run` to run it.
+
+## What's a Hashtag Rap?
 
 ## API
 
