@@ -1,0 +1,33 @@
+{
+  "name": "hashtagraps.com",
+  "version": "1.0.0",
+  "description": "#raps, when you need them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ndhoule/hashtagraps.com.git"
+  },
+  "keywords": [
+    "#",
+    "drake",
+    "hashtag",
+    "raps"
+  ],
+  "author": "Nathan Houle <nathan@nathanhoule.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndhoule/hashtagraps.com/issues"
+  },
+  "homepage": "https://github.com/ndhoule/hashtagraps.com",
+  "dependencies": {
+    "koa": "^0.18.1",
+    "koa-route": "^2.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "supertest": "^0.15.0"
+  }
+}
