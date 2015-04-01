@@ -4,7 +4,7 @@ Hashtag raps, when you need them.
 
 ## Requirements
 
-- io.js 1.6+ 
+- Node 0.12+
 
 ## API
 

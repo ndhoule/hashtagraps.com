@@ -2,7 +2,7 @@
 # Binaries.
 #
 
-MOCHA = ./node_modules/.bin/mocha
+_MOCHA = ./node_modules/.bin/_mocha
 
 #
 # Files.
@@ -20,7 +20,7 @@ node_modules: package.json $(wildcard node_modules/**/package.json)
 
 # Run tests.
 test: node_modules
-	@$(MOCHA) \
+	@node --harmony_scoping --harmony_generators $(_MOCHA) \
 		--ui bdd \
 		--reporter spec \
 		$(TESTS)
