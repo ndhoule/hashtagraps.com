@@ -4,7 +4,7 @@ Hashtag raps, when you need them.
 
 ## Requirements
 
-- Node 0.12+
+- Docker (boot2docker on OS X)
 
 ## API
 
