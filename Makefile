@@ -1,8 +1,16 @@
 #
+# Meta.
+#
+
+USERNAME=ndhoule
+NAME=hashtagraps
+VERSION=$(shell git describe --abbrev=0 --tags)
+
+#
 # Binaries.
 #
 
-_MOCHA = ./node_modules/.bin/_mocha
+MOCHA = ./node_modules/.bin/mocha
 
 #
 # Files.
@@ -18,11 +26,34 @@ TESTS = $(shell find test -name *.test.js)
 node_modules: package.json $(wildcard node_modules/**/package.json)
 	@npm install
 
+# Clean up.
+clean:
+	@rm -rf *.log
+
+# Clean up files and vendor dependencies.
+distclean: clean
+	@rm -rf node_modules
+
+#
+# Tasks.
+#
+
 # Run tests.
-test: node_modules
-	@node --harmony_scoping --harmony_generators $(_MOCHA) \
+test:
+	@$(MOCHA) \
 		--ui bdd \
 		--reporter spec \
 		$(TESTS)
 .PHONY: test
-.DEFAULT_GOAL = test
+
+# Run tests in Docker.
+test-docker: VERSION = dev
+test-docker: build
+	@docker run --rm -t $(USERNAME)/$(NAME):$(VERSION) make test
+.PHONY: test-docker
+
+# Build Docker container.
+build:
+	@echo "Building docker container $(USERNAME)/$(NAME):$(VERSION)..."
+	@docker build -t $(USERNAME)/$(NAME):$(VERSION) .
+.PHONY: build
